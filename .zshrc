@@ -40,6 +40,7 @@ export PATH=$PATH:~/bin
 [[ -z "$TMUX" ]] && tat
 
 # Aliases
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lg='lazygit'
 
 # FZF use rg
