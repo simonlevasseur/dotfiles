@@ -19,13 +19,14 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-zinit ice wait blockf
+# Zinit plugins
+zinit ice wait lucid blockf atpull='zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
-zinit ice wait
+zinit ice wait lucid atinit='zicompinit; zicdreplay'
 zinit light zdharma/fast-syntax-highlighting
 
-zinit ice wait
+zinit ice wait lucid atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 # Powerlevel10k theme
@@ -45,7 +46,7 @@ export PATH=$PATH:~/bin
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 # Always stay in tmux
-[[ -z "$TMUX" ]] && tat
+#[[ -z "$TMUX" ]] && tat
 
 # Aliases
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
