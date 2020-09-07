@@ -1,0 +1,11 @@
+# Clone dotfiles
+git clone --bare https://github.com/simonlevasseur/dotfiles.git $HOME/.dotfiles
+
+# Define dotfiles alias
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Checkout changes
+dotfiles checkout
+
+# Ignore untracked files
+dotfiles config --local status.showUntrackedFiles no
