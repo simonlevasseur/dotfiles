@@ -21,6 +21,7 @@ cask 'sizeup'
 cask 'slack'
 cask 'spotify'
 cask 'sourcetree'
+cask 'tableplus'
 cask 'whatsapp'
 
 mas 'spark', id: 1176895641
