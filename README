@@ -1,4 +1,9 @@
-# Clone dotfiles
+# Install homebrew
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+
+# Install git
+brew install git
+
 git clone --bare https://github.com/simonlevasseur/dotfiles.git $HOME/.dotfiles
 
 # Define dotfiles alias
@@ -9,3 +14,10 @@ dotfiles checkout
 
 # Ignore untracked files
 dotfiles config --local status.showUntrackedFiles no
+
+
+# iterm2 preferences
+# .zshrc
+# .p10k.zsh
+# .tmux.conf
+# vimrc
