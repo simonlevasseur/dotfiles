@@ -51,6 +51,8 @@ export PATH=$PATH:~/bin
 # Aliases
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lg='lazygit'
+alias vi="nvim"
+alias vim="nvim"
 
 # FZF use rg
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob="!{.git/*}"'
