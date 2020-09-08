@@ -14,16 +14,16 @@
 	ac = !git add -A && git commit
 	aca = !git add -A && git commit --amend
 	acan = !git add -A && git commit --amend --no-edit
-  b = branch
-  bd = branch -D
-  branch-name = "!git rev-parse --abbrev-ref HEAD"
+	b = branch
+	bd = branch -D
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	c = commit
 	ca = commit --amend
 	can = commit --amend --no-edit
-  ch = checkout
-  l = log --oneline -n 5
-  p = "!git push -u origin $(git branch-name)"
-  pf = push -f
+	ch = checkout
+	l = log --oneline -n 5
+	p = "!git push -u origin $(git branch-name)"
+	pf = push -f
 	s = status
 	up = pull --rebase --autostash
 [remote "origin"]

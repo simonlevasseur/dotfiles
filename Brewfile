@@ -23,6 +23,5 @@ cask 'spotify'
 cask 'sourcetree'
 cask 'whatsapp'
 
-
 mas 'spark', id: 1176895641
 mas 'todoist', id: 585829637
