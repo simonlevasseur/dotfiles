@@ -40,6 +40,7 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 prompt_context(){}
 
 # Add ~/bin to PATH
+export EDITOR=nvim
 export PATH=$PATH:~/bin
 
 # Load dev
