@@ -11,20 +11,25 @@ tap 'homebrew/cask-drivers'
 
 cask '1password'
 cask 'alfred3'
-cask 'corsair-icue'
+# cask 'corsair-icue'
 cask 'discord'
 cask 'fantastical'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'logitech-g-hub'
-cask 'postman'
-cask 'razer-synapse'
+# cask 'razer-synapse'
 cask 'sizeup'
-cask 'slack'
 cask 'spotify'
+cask 'whatsapp'
+
+# Work
+cask 'docker'
+cask 'postman'
+cask 'slack'
 cask 'sourcetree'
 cask 'tableplus'
-cask 'whatsapp'
+cask 'tuple'
+
 
 mas 'spark', id: 1176895641
 mas 'todoist', id: 585829637
