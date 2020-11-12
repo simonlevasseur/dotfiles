@@ -147,6 +147,17 @@ let NERDTreeStatusline = -1
 let NERDTreeWinSize = 50
 
 "###############################################################################
+"# Functions ###################################################################
+"###############################################################################
+
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
+
+"###############################################################################
 "# Automatic Commands ##########################################################
 "###############################################################################
 
@@ -162,6 +173,9 @@ set clipboard=unnamed
 
 " Show line at 120 chars
 set colorcolumn=120
+
+" Don't hide links in Markdown
+set conceallevel=0
 
 " Highlight line with cursor
 " Disabled for performance
@@ -247,7 +261,7 @@ nnoremap \ :Find<space>
 nnoremap <leader>w :Find <C-R><C-W><cr>
 
 " Fuzzy file finding
-nnoremap <silent> <leader>p :Files<cr>
+nnoremap <silent> <leader>p :call FZFOpen(':Files')<cr>
 " nnoremap <silent> <leader>p :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR> :Files<cr>
 
 " Replace in file
@@ -268,13 +282,13 @@ nnoremap <leader>d :Bdelete<cr>
 nnoremap <leader>D :bufdo :Bdelete<cr>
 
 " Netrw
-nnoremap <leader>e :Explore<cr>
-nmap <tab> :bnext<cr>
-nmap <S-tab> :bprev<cr>
+nnoremap <leader>e :call FZFOpen(':Explore')<cr>
+nmap <tab> :call FZFOpen(':bnext')<cr>
+nmap <S-tab> :call FZFOpen(':bprev')<cr>
 
 " NERDTree
 nmap <leader>t :NERDTree<cr>
-nnoremap <leader>f :NERDTreeFind<cr>
+nnoremap <leader>ff :NERDTreeFind<cr>
 
 " Testing
 let test#strategy = "vtr"
