@@ -31,6 +31,6 @@ cask 'sourcetree'
 cask 'tableplus'
 cask 'tuple'
 
-
+mas 'microsoft-remote-desktop', id: 1295203466
 mas 'spark', id: 1176895641
 mas 'todoist', id: 585829637
