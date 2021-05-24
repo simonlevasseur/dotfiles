@@ -14,7 +14,8 @@
 	ac = !git add -A && git commit
 	aca = !git add -A && git commit --amend
 	acan = !git add -A && git commit --amend --no-edit
-	b = branch
+	acanpf = !git acan && git pf
+	b = branch -vv
 	bd = branch -D
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	c = commit

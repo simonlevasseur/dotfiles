@@ -61,3 +61,8 @@ if [ -e /Users/slevasseur/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sle
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+# export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/slevasseur/.kube/config:/Users/slevasseur/.kube/config.shopify.cloudplatform
+# for file in /Users/slevasseur/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+# kubectl-short-aliases

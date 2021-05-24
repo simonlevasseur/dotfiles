@@ -66,7 +66,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
 
 " Nicer scrolling
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 
 " Show indentation
 Plug 'Yggdroot/indentLine'
@@ -96,6 +96,15 @@ Plug 'tpope/vim-obsession'
 " Change surrounding tags quickly
 Plug 'tpope/vim-surround'
 
+" Change surrounding tags quickly
+Plug 'tpope/vim-unimpaired'
+
+" Code folding
+" Plug 'Konfekt/FastFold'
+
+" Visual *
+Plug 'thinca/vim-visualstar'
+
 "###############################################################################
 "# Testing #####################################################################
 "###############################################################################
@@ -110,6 +119,12 @@ Plug 'christoomey/vim-tmux-runner'
 "# Navigation/Search Plugins ###################################################
 "###############################################################################
 
+" Ruby text object
+Plug 'kana/vim-textobj-user'
+Plug 'tek/vim-textobj-ruby'
+
+Plug 'dewyze/vim-ruby-block-helpers'
+
 " Fuzzy file finding
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
@@ -118,6 +133,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Project drawer
 Plug 'preservim/nerdtree'
+
+" LSP
+" Plug 'neovim/nvim-lspconfig'
 
 "###############################################################################
 "# Miscellaneous ###############################################################
@@ -129,24 +147,6 @@ Plug 'aserebryakov/vim-todo-lists'
 call plug#end()
 
 "###############################################################################
-"# Variables ###################################################################
-"###############################################################################
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#show_tab_type = 0
-
-let g:fzf_preview_window = 'right:50%'
-
-let g:VimTodoListsMoveItems = 0
-
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeMouseMode = 2
-let NERDTreeStatusline = -1
-let NERDTreeWinSize = 50
-
-"###############################################################################
 "# Functions ###################################################################
 "###############################################################################
 
@@ -156,6 +156,88 @@ function! FZFOpen(command_str)
   endif
   exe 'normal! ' . a:command_str . "\<cr>"
 endfunction
+
+" Send FZF results to the quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+"###############################################################################
+"# Variables ###################################################################
+"###############################################################################
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#show_tab_type = 0
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let g:fzf_preview_window = 'right:50%'
+let g:fzf_action = { 'ctrl-q': function('s:build_quickfix_list') }
+
+let g:VimTodoListsMoveItems = 0
+
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeMouseMode = 2
+let NERDTreeStatusline = -1
+let NERDTreeWinSize = 50
+
+" lua << EOF
+" require'lspconfig'.solargraph.setup{}
+" local nvim_lsp = require('lspconfig')
+" local on_attach = function(client, bufnr)
+"   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+"   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+"   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+"   -- Mappings.
+"   local opts = { noremap=true, silent=true }
+"   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+"   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+"   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+"   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+"   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+"   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+"   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+"   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
+"   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+"   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+"   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+"   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+"   -- Set some keybinds conditional on server capabilities
+"   if client.resolved_capabilities.document_formatting then
+"     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+"   elseif client.resolved_capabilities.document_range_formatting then
+"     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+"   end
+
+"   -- Set autocommands conditional on server_capabilities
+"   if client.resolved_capabilities.document_highlight then
+"     vim.api.nvim_exec([[
+"       hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+"       hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+"       hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+"       augroup lsp_document_highlight
+"         autocmd! * <buffer>
+"         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+"         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+"       augroup END
+"     ]], false)
+"   end
+" end
+
+" -- Use a loop to conveniently both setup defined servers 
+" -- and map buffer local keybindings when the language server attaches
+" local servers = { "solargraph" }
+" for _, lsp in ipairs(servers) do
+"   nvim_lsp[lsp].setup { on_attach = on_attach }
+" end
+" EOF
 
 "###############################################################################
 "# Automatic Commands ##########################################################
@@ -185,7 +267,7 @@ set conceallevel=0
 set expandtab
 
 " Fold based on syntax
-set foldmethod=indent
+" set foldmethod=syntax
 
 " Use ripgrep for vim-grep
 set grepprg=rg\ --vimgrep
@@ -267,6 +349,23 @@ nnoremap <silent> <leader>p :call FZFOpen(':Files')<cr>
 " Replace in file
 nnoremap <leader>r :%s///g<Left><Left>
 
+" Highlight word without moving
+nnoremap * *``
+
+" Delete without yanking
+nnoremap <BS> "_d
+nnoremap <BS><BS> "_dd
+vnoremap <BS> "_d
+
+" Repeat dot over range
+xnoremap . :norm.<CR>
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 " <A-j> move line down
 " <A-k> move line up
 nnoremap ∆ :m .+1<cr>==
@@ -279,7 +378,7 @@ vnoremap ˚ :m '<-2<cr>gv=gv
 " Buffers
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>d :Bdelete<cr>
-nnoremap <leader>D :bufdo :Bdelete<cr>
+nnoremap <leader>D :bufdo Bdelete!<cr>
 
 " Netrw
 nnoremap <leader>e :call FZFOpen(':Explore')<cr>
@@ -313,4 +412,4 @@ endif
 
 let g:rg_command = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!{.git/*,node_modules/*}" --color "always" '
 command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command . shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%'), <bang>0)
-" command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%'), <bang>0)
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%'), <bang>0)
