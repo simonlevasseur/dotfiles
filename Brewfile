@@ -11,7 +11,6 @@ brew 'tmux'
 tap 'homebrew/cask-drivers'
 
 cask '1password'
-# cask 'alfred3'
 cask 'alfred'
 # cask 'corsair-icue'
 cask 'cyberduck'
@@ -38,9 +37,7 @@ cask 'slack'
 cask 'tableplus'
 cask 'tuple'
 cask 'visual-studio-code'
-cask 'wireguard-tools'
 
-# mas 'bear', id: 1091189122
 # mas 'microsoft-remote-desktop', id: 1295203466
 mas 'spark', id: 1176895641
 mas 'todoist', id: 585829637
