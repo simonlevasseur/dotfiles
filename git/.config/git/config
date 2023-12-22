@@ -1,0 +1,36 @@
+[user]
+	name = Simon LeVasseur
+	email = simon.levasseur@shopify.com
+[core]
+	excludesfile = /Users/slevasseur/.gitignore_global
+#	pager = git-split-diffs --color | less -RFX
+[diff]
+[alias]
+	ac = !git add -A && git commit
+	aca = !git add -A && git commit --amend
+	acan = !git add -A && git commit --amend --no-edit
+	acanpf = !git acan && git pf
+	b = branch -vv
+	bd = branch -D
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	c = commit
+	ca = commit --amend
+	can = commit --amend --no-edit
+	ch = checkout
+	l = log --oneline -n 5
+	p = "!git push -u origin $(git branch-name)"
+	pf = push -f
+	s = status
+	up = pull --rebase --autostash
+[remote "origin"]
+	prune = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pager]
+	branch = false
+[include]
+	path = /Users/slevasseur/.config/dev/gitconfig

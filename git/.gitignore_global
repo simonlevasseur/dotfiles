@@ -1,0 +1,11 @@
+# Temporary files: example.txt~
+*~
+
+# MacOS Finder files
+.DS_Store
+
+# VIM swap files
+*.sw[nop]
+
+# Cache folder
+~/.cache
