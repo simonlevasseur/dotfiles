@@ -54,8 +54,6 @@ compinit
 PS1="%F{blue}%~%f $ "         # ~/.dotfiles $ ...
 
 # Load p10k
-# [[ -f ${XDG_CONFIG_HOME:-$HOME}/zsh/.p10k.zsh ]] && source ${XDG_CONFIG_HOME:-$HOME}/zsh/.p10k.zsh
-# source $(antidote path https://github.com/romkatv/powerlevel10k)/config/p10k-robbyrussell.zsh
 source $(antidote path https://github.com/romkatv/powerlevel10k)/config/p10k-pure.zsh
 
 # ---------------------------------------------------------------
