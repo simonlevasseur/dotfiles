@@ -185,6 +185,7 @@ let g:VimTodoListsMoveItems = 0
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeMouseMode = 2
+let NERDTreeShowHidden = 1
 let NERDTreeStatusline = -1
 let NERDTreeWinSize = 50
 
