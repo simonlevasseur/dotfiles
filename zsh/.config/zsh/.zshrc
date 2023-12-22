@@ -62,8 +62,8 @@ source $(antidote path https://github.com/romkatv/powerlevel10k)/config/p10k-pur
 # PATH
 # ---------------------------------------------------------------
 
-# Add ~/bin to PATH
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+# Add ~/.local/bin to PATH
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 
 # Add homebrew to PATH
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
