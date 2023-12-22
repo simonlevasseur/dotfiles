@@ -1,0 +1,11 @@
+# ZSH completion dump file
+.zcompdump*
+
+# ZSH history
+.zsh_history
+
+# Antidote auto-generated plugins script
+.zsh_plugins.zsh
+
+# TMUX plugins folder
+tmux/.config/tmux/plugins
