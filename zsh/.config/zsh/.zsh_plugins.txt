@@ -1,0 +1,2 @@
+$ZDOTDIR/.aliases
+romkatv/powerlevel10k

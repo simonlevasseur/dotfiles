@@ -1,0 +1,6 @@
+# Always use nvim instead of vi/vim
+alias vi='nvim'
+alias vim='nvim'
+
+alias lg='lazygit'
+alias ll='ls -alF'
