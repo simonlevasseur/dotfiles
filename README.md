@@ -36,8 +36,35 @@ stow -R folder
 ## Commands
 
 # TMUX
-## TPM
-Install plugins: `prefix + I`
-Uninstall plugins: `prefix + alt + u`
-Update plugin: `prefix + U`
+## Tmux Plugin Manager
+```bash
+# Install plugins
+<prefix> + I
 
+# Uninstall plugins
+<prefix> + alt + u
+
+#Update plugin
+<prefix> + U
+```
+
+## Shortcuts
+```bash
+# Reload tmux.conf
+<prefix> + R
+```
+
+## Commands
+```bash
+# Start with
+<prefix> + :
+
+# Set current window to number 1
+swap-window -t 1
+```
+
+# SKHD
+```bash
+# Restart service
+ctrl + alt - r
+```
