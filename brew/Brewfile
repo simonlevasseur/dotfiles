@@ -1,0 +1,26 @@
+tap 'homebrew/cask-fonts'
+cask 'font-jetbrains-mono-nerd-font'
+
+brew 'antidote' # zsh package manager
+
+brew 'bat'
+brew 'fzf'
+brew 'git'
+brew 'lazygit'
+brew 'neovim'
+brew 'reattach-to-user-namespace'
+brew 'ripgrep'
+brew 'tmux'
+
+cask '1password'
+cask 'fantastical'
+cask 'google-chrome'
+cask 'karabiner-elements'
+cask 'kitty'
+cask 'logitech-g-hub'
+cask 'spotify'
+
+# Work
+cask 'slack'
+cask 'tuple'
+cask 'visual-studio-code'
