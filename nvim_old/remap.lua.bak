@@ -1,0 +1,17 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- global
+vim.keymap.set("n", "<leader>so", vim.cmd.so)
+
+-- Esc out of any mode
+vim.keymap.set("n", "<C-space>", '<Esc>:noh<cr>')
+vim.keymap.set("v", "<C-space>", '<Esc>gV')
+vim.keymap.set("o", "<C-space>", '<Esc>')
+vim.keymap.set("c", "<C-space>", '<C-c>')
+vim.keymap.set("i", "<C-space>", '<Esc>')
+
+-- netrw
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<tab>", vim.cmd.bnext)
+vim.keymap.set("n", "<S-tab>", vim.cmd.bprev)

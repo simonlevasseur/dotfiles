@@ -1,0 +1,64 @@
+vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
+
+-- Show line at 120 chars
+vim.opt.colorcolumn = '120'
+
+-- Don't hide links in Markdown
+--vim.opt.conceallevel = 0
+
+-- Highlight line with cursor
+-- Disabled for performance
+vim.opt.cursorline = true
+
+-- Use spaces when pressing tab
+vim.opt.expandtab = true
+
+-- Fold based on indent
+--vim.opt.foldmethod = indent
+
+-- Use ripgrep for --vim-grep
+-- --vim.opt.grepprg = rg\ ----vimgrep
+
+-- Change buffers without saving changes
+--vim.opt.hidden = true
+
+-- Case-insensitive searching
+vim.opt.ignorecase = true
+
+-- Do not redraw for commands not typed
+--vim.opt.lazyredraw = true
+
+-- Mouse support in all modes
+--vim.opt.mouse = a
+
+-- Start with folds all open
+--vim.opt.nofoldenable = true
+
+-- Show line numbers
+-- vim.opt.number = true
+
+-- Use relative line numbers
+-- vim.opt.relativenumber = true
+
+-- Number of rows before and after the cursor
+vim.opt.scrolloff = 5
+
+-- Round indent to multiple of 'shiftwidth'
+vim.opt.shiftround = true
+
+-- Number of spaces to use for indents
+vim.opt.shiftwidth = 2
+
+vim.opt.signcolumn = 'number'
+
+-- Case-sensitive searching when using uppercase
+vim.opt.smartcase = true
+
+-- Open horizontal splits below
+vim.opt.splitbelow = true
+
+-- Open vertical splits to the right
+vim.opt.splitright = true
+
+-- Number of spaces to use for tab
+vim.opt.tabstop = 2

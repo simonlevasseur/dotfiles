@@ -63,6 +63,22 @@ stow -R folder
 swap-window -t 1
 ```
 
+# VIM
+## Help
+```bash
+# Go to link under cursor
+<Ctrl> + ]
+```
+
+## Options
+```bash
+# Read the value
+set number
+
+# See all mappings in Normal mode
+:nmap
+```
+
 # SKHD
 ```bash
 # Restart service
