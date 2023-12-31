@@ -46,6 +46,11 @@ unalias run-help 2>/dev/null  # don't display err if already done
 autoload -Uz run-help         # load the function
 alias help=run-help           # call help instead of run-help
 
+# Dotfiles git from anywhere: dotfiles status
+dotfiles() {
+  (cd ~/.dotfiles && git "$@")
+}
+
 # Load new zsh completion system
 autoload -Uz compinit
 compinit
