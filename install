@@ -4,6 +4,7 @@ autoload -U colors
 colors
 
 install_dependencies() {
+	sudo apt install stow
 }
 
 link_files() {
