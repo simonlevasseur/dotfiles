@@ -11,6 +11,7 @@ brew 'neovim'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'skhd'
+brew 'stow'
 brew 'tmux'
 
 cask '1password'
