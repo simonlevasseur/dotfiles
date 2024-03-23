@@ -28,3 +28,4 @@
 	branch = false
 [include]
 	path = /Users/slevasseur/.config/dev/gitconfig
+	path = /Users/simonlevasseur/.config/dev/gitconfig
